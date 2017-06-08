@@ -61,7 +61,6 @@ Package.registerBuildPlugin({
   ],
   npmDependencies: {
     "node-json-minify": "0.1.3-a",
-    "yamljs": "0.2.4"
   },
   sources: [
     'lib/globals.js',
@@ -72,7 +71,6 @@ Package.registerBuildPlugin({
 
     'lib/plugin/helpers/helpers.coffee',
     'lib/plugin/helpers/load_json.coffee',
-    'lib/plugin/helpers/load_yml.coffee',
     'lib/plugin/helpers/compile_step_helpers.coffee',
 
     'lib/plugin/compilers/share.coffee',
@@ -81,6 +79,5 @@ Package.registerBuildPlugin({
     'lib/plugin/compilers/package-tap.i18n.coffee',
     'lib/plugin/compilers/i18n.generic_compiler.coffee',
     'lib/plugin/compilers/i18n.json.coffee',
-    'lib/plugin/compilers/i18n.yml.coffee'
   ]
 });
