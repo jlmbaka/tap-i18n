@@ -3,11 +3,6 @@ compilers = share.compilers
 compiler_configuration = share.compiler_configuration
 
 share.project_i18n_schema = schema = new SimpleSchema
-  helper_name:
-    type: String
-    defaultValue: "_"
-    label: "Helper Name"
-    optional: true
   supported_languages:
     type: [String]
     label: "Supported Languages"

@@ -109,10 +109,8 @@ compilers.generic_compiler = (extension, helper) -> (compileStep) ->
 
         for (var i = 0; i < package_templates.length; i++) {
           var package_template = package_templates[i];
-
-          registerI18nTemplate(package_template);
+          // registerI18nTemplate(package_template);
         }
-
         """
       compiler_configuration.templates_registered_for.push helpers.getCompileStepArchAndPackage(compileStep)
 

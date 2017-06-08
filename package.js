@@ -22,7 +22,7 @@ Package.onUse(function (api) {
   api.use('tracker', both);
   api.use('session', client);
   api.use('jquery', client);
-  api.use('templating', client);
+  // api.use('templating', client);
 
   api.use('cfs:http-methods@0.0.27', server);
 
@@ -52,7 +52,13 @@ Package.onUse(function (api) {
 
 Package.registerBuildPlugin({
   name: 'tap-i18n-compiler',
-  use: ['coffeescript', 'underscore', 'aldeed:simple-schema@1.3.0', 'check@1.0.3', 'templating'],
+  use: [
+  'coffeescript',
+  'underscore',
+  'aldeed:simple-schema@1.3.0',
+  'check@1.0.3',
+  // 'templating',
+  ],
   npmDependencies: {
     "node-json-minify": "0.1.3-a",
     "yamljs": "0.2.4"

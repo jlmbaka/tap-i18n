@@ -8,11 +8,6 @@ schema = new SimpleSchema
     defaultValue: "__"
     label: "Translation Function Name"
     optional: true
-  helper_name:
-    type: String
-    defaultValue: "_"
-    label: "Helper Name"
-    optional: true
   namespace:
     type: String
     defaultValue: null
@@ -77,8 +72,8 @@ compilers.package_tap_i18n = (compileStep) ->
     package_i18n_js_file +=
       """
       // define the package's templates registrar
-      registerI18nTemplate = TAPi18n._getRegisterHelpersProxy("#{package_name}");
-      registerTemplate = registerI18nTemplate; // XXX OBSOLETE, kept for backward compatibility will be removed in the future
+      // registerI18nTemplate = TAPi18n._getRegisterHelpersProxy("#{package_name}");
+      // registerTemplate = registerI18nTemplate; // XXX OBSOLETE, kept for backward compatibility will be removed in the future
 
       // Record the list of templates prior to package load
       var _ = Package.underscore._;

@@ -81,42 +81,6 @@ _.extend TAPi18n.prototype,
 
     return dfd.promise()
 
-  _registerHelpers: (package_name, template) ->
-    if package_name != globals.project_translations_domain
-      tapI18nextProxy = @_getPackageI18nextProxy(@packages[package_name].namespace)
-    else
-      tapI18nextProxy = @_getPackageI18nextProxy(globals.project_translations_domain)
-
-    underscore_helper = (key, args...) ->
-      options = (args.pop()).hash
-      if not _.isEmpty(args)
-        options.sprintf = args
-
-      tapI18nextProxy(key, options)
-
-    # template specific helpers
-    if package_name != globals.project_translations_domain
-      # {{_ }}
-      if Template[template]? and Template[template].helpers?
-        helpers = {}
-        helpers[@packages[package_name].helper_name] = underscore_helper
-        Template[template].helpers(helpers)
-
-    # global helpers
-    else
-      # {{_ }}
-      UI.registerHelper @conf.helper_name, underscore_helper
-
-      # {{languageTag}}
-      UI.registerHelper "languageTag", () => @getLanguage()
-
-    return
-      
-  _getRegisterHelpersProxy: (package_name) ->
-    # A proxy to _registerHelpers where the package_name is fixed to package_name
-    (template) =>
-      @_registerHelpers(package_name, template)
-
   _prepareLanguageSpecificTranslator: (lang_tag) ->
     dfd = (new $.Deferred()).resolve().promise()
 
@@ -171,7 +135,7 @@ _.extend TAPi18n.prototype,
       TAPi18next.t "#{TAPi18n._getPackageDomain(package_name)}:#{key}", options
 
   _onceEnabled: () ->
-    @_registerHelpers globals.project_translations_domain
+    # @_registerHelpers globals.project_translations_domain
 
   _abortPreviousSetLang: null
   setLanguage: (lang_tag) ->
